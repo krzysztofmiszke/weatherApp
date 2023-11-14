@@ -12,6 +12,7 @@ export class DataService {
   apiKey: string = 'a77716829359c16e80a756f4d9593c06';
   apiUrl: string = `http://api.openweathermap.org/data/2.5/forecast?id=${this.zabrze}&appid=`;
   metric: string = '&units=metric';
+  count: string = '&cnt=80';
 
   constructor(private http: HttpClient) { }
 
