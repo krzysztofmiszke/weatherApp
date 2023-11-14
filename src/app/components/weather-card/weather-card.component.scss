@@ -1,8 +1,49 @@
+@import '../../../styles.scss';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.week-day-number {
+    width: 50px;
+    margin: 8px 0 0 0;
+    color: rgba(176,203,229,90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.week-day-name {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    color: rgba(9,9,121,1);
+}
+
+.weather-container {
+    display: flex;
+    justify-content: center;
+}
+
 .weather-card {
+
+    width: 200px;
+    margin: 8px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    color: #fff;
     border-radius: 5px;
+    background: rgb(2,0,36);
+    background: 
+        linear-gradient( 
+            rgba(2,0,36,1) 0%, 
+            rgba(9,9,121,1) 0%, 
+            rgba(0,126,255,1) 100%);
+    font-family: 'Roboto', sans-serif;
 }
