@@ -1,14 +1,11 @@
-<div *ngIf="data && data.city">
-  <pre>{{ data.city.name  }} ({{ data.city.country }})</pre>
-</div>
+<router-outlet>
 
-<pre *ngFor="let listitem of data.list">
-  <span>Time: {{ listitem.dt_txt | date: 'shortTime' }}</span>
-  <span *ngFor="let weather of listitem.weather">{{ weather.main }}</span>
-  <span>Temperature: {{ listitem.main.temp }}&deg;C</span>
-  <span>Feels like: {{ listitem.main.feels_like }}&deg;C</span>
-  <span>Temp. max: {{ listitem.main.temp_max }}&deg;C</span>
-  <span>Temp. min: {{ listitem.main.temp_min }}&deg;C</span>
-  <span>Pressure: {{ listitem.main.pressure }}&#13169;</span>
-  <span>Humidity: {{ listitem.main.humidity }}%</span>
-</pre>
+  <div *ngIf="data && data.city">
+    <pre>{{ data.city.name  }} ({{ data.city.country }})</pre>
+  </div>
+
+  <pre *ngFor="let listitem of data.list">
+    <app-weather-card [item]="listitem"></app-weather-card>
+  </pre>
+
+</router-outlet>

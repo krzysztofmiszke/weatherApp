@@ -4,10 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    WeatherCardComponent,
   ],
   imports: [
     BrowserModule,
