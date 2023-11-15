@@ -1,0 +1,19 @@
+<ng-container *ngIf="[
+    'Clear',
+    'Clouds',
+    'Rain',
+    'Snow',
+    'Thunderstorm',
+    'Mist',
+    'Fog',
+    'Drizzle',
+    'Smoke',
+    'Haze',
+    'Dust',
+    'Sand',
+    'Ash',
+    'Squall',
+    'Tornado'
+    ].includes(weather)">
+        <img [src]="weatherUrl" alt="">
+</ng-container>

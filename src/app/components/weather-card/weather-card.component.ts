@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DataService } from 'src/app/data.service';
 
 export interface Weather {
   city: City,
@@ -33,8 +32,9 @@ export interface Coordinates {
 export class WeatherCardComponent {
 
   @Input() item: any | undefined;
+  weatherIcon: string = '';
 
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   ngOnInit() { }
 

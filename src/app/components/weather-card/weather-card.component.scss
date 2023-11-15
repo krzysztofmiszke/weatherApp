@@ -1,8 +1,74 @@
+@import '../../../styles.scss';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+@mixin weather-details {
+    margin: 1px 2px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 200;
+
+    & > span:nth-child(2) {
+        font-weight: 300;
+    }
+}
+
 .weather-card {
+    width: 240px;
+    margin: 8px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    color: #fff;
     border-radius: 5px;
+    background: rgb(2,0,36);
+    background: linear-gradient( 
+        0deg,
+        rgba(2,0,36,1) 0%, 
+        rgb(42,42,147) 0%, 
+        rgba(0,126,255,1) 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+.date-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+.weather-card-ico {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-description {
+    font-weight: 200;
+    font-size: 0.9rem;
+}
+
+.temperature-value {
+    margin: 20px;
+    font-weight: 500;
+    font-size: 2.6rem;
+}
+
+.weather-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.feels-like-temperature-value {
+   @include weather-details;
+}
+.pressure-value {
+   @include weather-details;
+}
+
+.humidity-value {
+   @include weather-details;
 }
