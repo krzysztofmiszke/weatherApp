@@ -1,11 +1,20 @@
 <router-outlet>
 
-  <div *ngIf="data && data.city">
-    <pre>{{ data.city.name  }} ({{ data.city.country }})</pre>
-  </div>
+  <div class="container">
 
-  <pre *ngFor="let listitem of data.list">
-    <app-weather-card [item]="listitem"></app-weather-card>
-  </pre>
+    <app-search (search)="performSearch()"></app-search>
+    <span class="errorMessage">{{ errorMessage }}</span>
+  
+    <div *ngIf="data && data.city">
+      <pre>{{ data.city.name  }} ({{ data.city.country }})</pre>
+    </div>
+  
+    <div class="weather-cards">
+      <div *ngFor="let listitem of data.list">
+        <app-weather-card [item]="listitem"></app-weather-card>
+      </div>
+    </div>
+
+  </div>
 
 </router-outlet>
