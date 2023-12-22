@@ -3,10 +3,10 @@
   <div class="container">
 
     <app-search (search)="performSearch()"></app-search>
-    <!-- <span class="errorMessage">{{ errorMessage }}</span> -->
-  
-    <div *ngIf="data && data.city">
-      <pre>{{ data.city.name  }} ({{ data.city.country }})</pre>
+
+    <div class="location-data" *ngIf="data && data.city">
+      <div>Your location:&nbsp;</div>
+      <div class="location">{{ data.city.name  }} ({{ data.city.country }})</div>
     </div>
   
     <div class="weather-cards">
