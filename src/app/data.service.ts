@@ -1,3 +1,4 @@
+import { getLocaleTimeFormat } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, mergeMap, tap } from 'rxjs';
@@ -14,14 +15,12 @@ export class DataService {
   count: string = '&cnt=40';
   latitude: string | number = '';
   longitude: string | number = '';
-  // apiUrl: string = `http://api.openweathermap.org/data/2.5/forecast?id=${this.zabrze}&appid=`;
   apiUrl: string = `http://api.openweathermap.org/data/2.5/forecast`
   position!: GeolocationPosition;
 
   constructor(private http: HttpClient) { }
 
   getWeather(): Observable<Partial<Weather>> {
-
     const geolocation$ = new Observable<GeolocationPosition>((observer) => {
       navigator.geolocation.getCurrentPosition(
         (position) => observer.next(position),

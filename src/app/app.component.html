@@ -3,7 +3,7 @@
   <div class="container">
 
     <app-search (search)="performSearch()"></app-search>
-    <span class="errorMessage">{{ errorMessage }}</span>
+    <!-- <span class="errorMessage">{{ errorMessage }}</span> -->
   
     <div *ngIf="data && data.city">
       <pre>{{ data.city.name  }} ({{ data.city.country }})</pre>
