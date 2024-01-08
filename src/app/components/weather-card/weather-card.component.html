@@ -4,9 +4,7 @@
         <div class="weather-card">
             <div class="date-container">
                 <div class="date-item">
-                    <!-- {{ convertedDate | date: 'LLL'}} -->
                     {{ convertToDate(item?.dt) | date: 'LLL dd' }}
-                    <!-- {{ item?.dt | date: 'dd' }}, -->
                 </div>
                 <div class="date-item">
                     {{ convertToDate(item?.dt) | date: 'EEEE' }}
