@@ -1,3 +1,7 @@
+.app-container {
+    margin: 0 16px;
+}
+
 .weather-cards {
     display: flex;
     flex-wrap: wrap;
@@ -10,7 +14,7 @@
 }
 
 .location-data {
-    margin: 50px 0 20px 0;
+    margin: 50px 0;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;

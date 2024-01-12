@@ -1,17 +1,15 @@
-<div class="input-group mb-3">
+<div class="search-container">
     <input 
         type="text" 
-        class="form-control" 
+        class="search-bar" 
         placeholder="Search"
         [(ngModel)]="searchQuery"
         (keyup.enter)="onSearch()"
     >
-    <div class="input-group-append">
-        <button 
-            class="btn btn-primary" 
-            type="button" 
-            (click)="onSearch()">
-            Search
-        </button>
-    </div>
+    <button 
+        class="search-button" 
+        type="button" 
+        (click)="onSearch()">
+        Search
+    </button>
 </div>
