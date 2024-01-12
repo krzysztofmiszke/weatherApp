@@ -1,18 +1,18 @@
 <div *ngIf="isWeather; then weather else forecast"></div>
 <ng-template #weather>
     <div class="weather-container">
-        <div class="weather-card">
-            <div class="date-container">
-                <div class="date-item">
-                    {{ convertToDate(item?.dt) | date: 'LLL dd' }}
-                </div>
-                <div class="date-item">
-                    {{ convertToDate(item?.dt) | date: 'EEEE' }}
-                </div>
-                <div class="date-item">
-                    {{ convertToDate(item?.dt) | date: 'H:mm' }}
-                </div>
+        <div class="date-container">
+            <div class="date-item">
+                {{ convertToDate(item?.dt) | date: 'LLL dd' }}
             </div>
+            <div class="date-item">
+                {{ convertToDate(item?.dt) | date: 'EEEE' }}
+            </div>
+            <div class="date-item">
+                {{ convertToDate(item?.dt) | date: 'H:mm' }}
+            </div>
+        </div>
+        <div class="weather-card">
             <div class="weather-card-ico" *ngFor="let weather of item?.weather">
                 <div class="weather-ico">
                     <app-weather-icon [weather]="weather.main" [weatherIcon]="weather.icon"></app-weather-icon>
@@ -25,15 +25,19 @@
             <div class="weather-details">
                 <div class="feels-like-temperature-value detail">
                     <span>Feels like </span>
-                    <span>{{ item?.main.feels_like }}&deg;C</span>
+                    <span>{{ item?.main.feels_like }} &deg;C</span>
                 </div>
                 <div class="pressure-value detail">
                     <span>Pressure </span>
-                    <span>{{ item?.main.pressure }} &#13169;</span>
+                    <span>{{ item?.main.pressure }} hPa</span>
                 </div>
                 <div class="humidity-value detail">
                     <span>Humidity </span>
-                    <span>{{ item?.main.humidity }}%</span>
+                    <span>{{ item?.main.humidity }} %</span>
+                </div>
+                <div class="wind-value detail">
+                    <span>Wind </span>
+                    <span>{{ convertToKilometers(item?.wind.speed) }} km/h</span>
                 </div>
             </div>
         </div>

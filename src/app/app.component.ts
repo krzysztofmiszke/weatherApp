@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.isWeather ? this.getWeather() : this.getForecast();
-    // this.getWeather();
     this.getSearchQuery();
   }
 
@@ -44,7 +43,6 @@ export class AppComponent implements OnInit {
       (data) => { 
         this.data = data;
         this.weatherNow = this.data;
-        console.log(this.weatherNow);
       },
       (error) => { }
     )
@@ -54,7 +52,6 @@ export class AppComponent implements OnInit {
     !this.isWeather ? 
     this.data = this.dataService.getForecast().subscribe(
       (data: any) => {this.data = data;
-      console.log(data)
       }) : this.getWeather()
   }
 

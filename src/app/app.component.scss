@@ -1,13 +1,17 @@
-@media screen and (max-width: 922px) {
+@media screen and (max-width: 921px) {
     .app-container {
         margin: 0 16px;
     }
+}
 
-    .weather-type {
-        // border: 1px solid red;
-        // width: 96vw;
+@media (min-width: 922px) and (max-width: 1199px ) { 
+    .app-container {
+        margin: 0 16px;
     }
 }
+
+@media screen and (max-width: 1919px) { }
+
 
 .weather-cards {
     display: flex;

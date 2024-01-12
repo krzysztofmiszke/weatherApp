@@ -1,8 +1,8 @@
 @mixin weather-details {
-    margin: 1px 2px;
     display: flex;
-    justify-content: space-between;
+    margin: 1px 2px;
     font-weight: 200;
+    justify-content: space-between;
     border-bottom: 0.5px solid #d1d1d1;
 
     & > span:nth-child(2) {
@@ -10,13 +10,50 @@
     }
 }
 
-@media screen and (max-width: 922px) {
+@mixin weather-card {
+    width: 95vw;
+    padding: 16px;
+    margin: 0 16px 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 921px) {
     .weather-container {
-        background-color: #fff;
-        width: 95vw;
-        margin: 0 16px 16px;
-        padding: 16px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        @include weather-card;
+    }
+}
+
+@media (min-width: 922px) and (max-width: 1919px) {
+    .weather-container {
+        @include weather-card;
+
+        .weather-card {
+            display: flex;
+        }
+
+        .date-container {
+            width: auto;
+            display: flex;
+            justify-content: flex-start;
+
+            .date-item {
+                margin-right: 8px;
+            }
+
+            .date-item:first-child {
+                display: none;
+            }
+        }
+
+        .weather-card-ico {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .temperature-value {
+            margin: 0 32px;
+        }
     }
 }
 
@@ -88,4 +125,8 @@
 
 .humidity-value {
    @include weather-details;
+}
+
+.wind-value {
+    @include weather-details;
 }
