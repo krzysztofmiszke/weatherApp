@@ -1,3 +1,14 @@
+@media screen and (max-width: 922px) {
+    .app-container {
+        margin: 0 16px;
+    }
+
+    .weather-type {
+        // border: 1px solid red;
+        // width: 96vw;
+    }
+}
+
 .weather-cards {
     display: flex;
     flex-wrap: wrap;
@@ -10,7 +21,7 @@
 }
 
 .location-data {
-    margin: 50px 0 20px 0;
+    margin: 50px 0;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;

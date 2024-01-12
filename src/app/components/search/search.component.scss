@@ -1,0 +1,25 @@
+@mixin fontType {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+@media screen and (max-width: 922px) {
+    .search-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .search-bar {
+        @include fontType;
+        width: 100%;
+    }
+
+    .search-button {
+        @include fontType;
+        
+        color: #d1d1d1;
+        background-color: #313131;
+    }
+
+}
+

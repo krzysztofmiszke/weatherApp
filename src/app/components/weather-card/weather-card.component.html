@@ -23,15 +23,15 @@
             </div>
             <div class="temperature-value">{{ item?.main.temp | number: '1.0-1' }}&deg;C</div>
             <div class="weather-details">
-                <div class="feels-like-temperature-value">
+                <div class="feels-like-temperature-value detail">
                     <span>Feels like </span>
                     <span>{{ item?.main.feels_like }}&deg;C</span>
                 </div>
-                <div class="pressure-value">
+                <div class="pressure-value detail">
                     <span>Pressure </span>
                     <span>{{ item?.main.pressure }} &#13169;</span>
                 </div>
-                <div class="humidity-value">
+                <div class="humidity-value detail">
                     <span>Humidity </span>
                     <span>{{ item?.main.humidity }}%</span>
                 </div>
