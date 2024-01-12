@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   data: any | undefined;
   searchQuery: string = '';
   errorMessage: string = '';
+  isWeather: boolean = true;
+  weatherNow: any | undefined;
 
   constructor(
     private dataService: DataService,
@@ -20,8 +22,14 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getWeather();
+    this.isWeather ? this.getWeather() : this.getForecast();
+    // this.getWeather();
     this.getSearchQuery();
+  }
+
+  checkWeather(isWeather: boolean): void {
+    this.isWeather = isWeather;
+    isWeather ? this.getWeather() : this.getForecast();
   }
 
   getSearchQuery() {
@@ -33,9 +41,21 @@ export class AppComponent implements OnInit {
 
   getWeather() {
     this.data = this.dataService.getWeather().subscribe(
-      (data) => { this.data = data },
+      (data) => { 
+        this.data = data;
+        this.weatherNow = this.data;
+        console.log(this.weatherNow);
+      },
       (error) => { }
     )
+  }
+
+  getForecast() {
+    !this.isWeather ? 
+    this.data = this.dataService.getForecast().subscribe(
+      (data: any) => {this.data = data;
+      console.log(data)
+      }) : this.getWeather()
   }
 
   performSearch(): void {

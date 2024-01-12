@@ -1,19 +1,35 @@
 <router-outlet>
 
   <div class="container">
-
+    <app-navbar (weatherType)="checkWeather($event)"></app-navbar>
     <app-search (search)="performSearch()"></app-search>
 
-    <div class="location-data" *ngIf="data && data.city">
+    <!-- <div class="location-data" *ngIf="data && data.city">
       <div>Your location:&nbsp;</div>
       <div class="location">{{ data.city.name  }} ({{ data.city.country }})</div>
-    </div>
-  
-    <div class="weather-cards">
-      <div *ngFor="let listitem of data.list">
-        <app-weather-card [item]="listitem"></app-weather-card>
+    </div> -->
+    
+    <div class="weather-type" *ngIf="isWeather; else forecast">
+      <div class="location-data" *ngIf="data.name && data.sys.country">
+        <div>Your location:&nbsp;</div>
+        <div class="location">{{ data.name }} ({{ data.sys.country }})</div>
+      </div>
+      <div class="weather-cards">
+          <app-weather-card [item]="weatherNow"></app-weather-card>
       </div>
     </div>
+
+    <ng-template #forecast>
+      <div class="location-data" *ngIf="data && data.city">
+        <div>Your location:&nbsp;</div>
+        <div class="location">{{ data.city.name  }} ({{ data.city.country }})</div>
+      </div>
+      <div class="weather-cards">
+        <div *ngFor="let listitem of data.list">
+          <app-weather-card [item]="listitem"></app-weather-card>
+        </div>
+      </div>
+    </ng-template>
 
   </div>
 

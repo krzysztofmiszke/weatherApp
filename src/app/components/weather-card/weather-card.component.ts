@@ -33,9 +33,12 @@ export class WeatherCardComponent {
 
   @Input() item: any | undefined;
   weatherIcon: string = '';
+  isWeather: boolean = true;
 
   constructor() { }
 
   ngOnInit() { }
+
+  convertToDate = (date: any) => new Date(date * 1000) ;
 
 }

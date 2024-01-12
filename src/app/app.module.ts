@@ -8,6 +8,7 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
 import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     WeatherCardComponent,
     WeatherIconComponent,
     SearchComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
