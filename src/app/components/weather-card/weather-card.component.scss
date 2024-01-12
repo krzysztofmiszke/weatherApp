@@ -13,7 +13,7 @@
 @mixin weather-card {
     width: 95vw;
     padding: 16px;
-    margin: 0 16px 16px;
+    margin: 0 0 16px 0;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -55,6 +55,11 @@
             margin: 0 32px;
         }
     }
+}
+
+.weather-container {
+    width: 100%;
+    // background-color: red;
 }
 
 .detail {

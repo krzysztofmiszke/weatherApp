@@ -9,26 +9,37 @@
       <div class="location">{{ data.city.name  }} ({{ data.city.country }})</div>
     </div> -->
     
-    <div class="weather-type" *ngIf="isWeather; else forecast">
-      <div class="location-data" *ngIf="data.name && data.sys.country">
+    <div class="weather-type" *ngIf="isWeather; then weather else forecast">
+      <!-- <div class="location-data" *ngIf="data.name && data.sys.country">
         <div>Your location:&nbsp;</div>
         <div class="location">{{ data.name }} ({{ data.sys.country }})</div>
       </div>
       <div class="weather-cards">
           <app-weather-card [item]="weatherNow"></app-weather-card>
-      </div>
+      </div> -->
     </div>
+
+    <ng-template #weather>
+      <div class="location-data" *ngIf="data.name && data.sys.country">
+        <div>Your location:&nbsp;</div>
+        <div class="location">{{ data.name }} ({{ data.sys.country }})</div>
+      </div>
+      <!-- <div class="weather-cards"> -->
+        <app-weather-card [item]="weatherNow"></app-weather-card>
+      <!-- </div> -->
+    </ng-template>
+    
 
     <ng-template #forecast>
       <div class="location-data" *ngIf="data && data.city">
         <div>Your location:&nbsp;</div>
         <div class="location">{{ data.city.name  }} ({{ data.city.country }})</div>
       </div>
-      <div class="weather-cards">
+      <!-- <div class="weather-cards"> -->
         <div *ngFor="let listitem of data.list">
           <app-weather-card [item]="listitem"></app-weather-card>
         </div>
-      </div>
+      <!-- </div> -->
     </ng-template>
 
   </div>
