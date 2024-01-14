@@ -8,6 +8,22 @@ export interface Weather {
   message: number;
 }
 
+export interface Forecast {
+  base: string,
+  clouds: {},
+  cod: number,
+  coord: {},
+  dt: number,
+  id: number,
+  main: {},
+  name: string,
+  sys: {},
+  timezone: number,
+  visibility: number,
+  weather: [],
+  wind: {}
+}
+
 export interface City {
   coord: Coordinates,
   country: string,
