@@ -9,7 +9,8 @@ export class SearchService {
   
   private searchQuerySubject = new Subject<string>();
   
-  baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast?'
+  weatherUrl: string = 'http://api.openweathermap.org/data/2.5/weather?';
+  forecastUrl: string = 'http://api.openweathermap.org/data/2.5/forecast?';
   apiKey: string = 'a77716829359c16e80a756f4d9593c06';
   metric: string = '&units=metric';
   count: string = '&cnt=40';
@@ -25,7 +26,12 @@ export class SearchService {
   }
 
   getWeather(searchValue: string): Observable<any> {
-    const url = `${this.baseUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
+    const url = `${this.weatherUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
+    return this.http.get(url);
+  }
+
+  getForecast(searchValue: string): Observable<any> {
+    const url = `${this.forecastUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
     return this.http.get(url);
   }
 

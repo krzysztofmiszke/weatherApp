@@ -1,11 +1,17 @@
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a 
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (click)="changeWeatherType()">
+            <label class="form-check-label" for="flexSwitchCheckDefault">
+                {{ isGeoLocationON ? 'Geolocation ON' : 'Geolocation OFF' }}
+            </label>
+        </div>
+        <!-- <a 
             class="nav-link active" 
             aria-current="page" 
             (click)="changeWeatherType()" 
             href="#">
-            {{ isWeather ? 'Switch to forecast' : 'Switch to weather' }}
-        </a>
+            {{ isWeather ? 'Geolocation ON' : 'Geolocation OFF' }}
+        </a> -->
     </li>
 </ul>

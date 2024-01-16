@@ -9,13 +9,13 @@ export class NavbarComponent {
 
   @Output() weatherType = new EventEmitter<boolean>();
 
-  isWeather: boolean = true;
+  isGeoLocationON: boolean = false;
 
   ngOnInit(): void {};
 
   changeWeatherType(): void {
-    this.isWeather = !this.isWeather;
-    this.weatherType.emit(this.isWeather);
+    this.isGeoLocationON = !this.isGeoLocationON;
+    this.weatherType.emit(this.isGeoLocationON);
   }
 
 }
