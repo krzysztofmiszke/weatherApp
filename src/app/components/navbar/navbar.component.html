@@ -1,11 +1,10 @@
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a 
-            class="nav-link active" 
-            aria-current="page" 
-            (click)="changeWeatherType()" 
-            href="#">
-            {{ isWeather ? 'Switch to forecast' : 'Switch to weather' }}
-        </a>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="checked" (click)="changeWeatherType()">
+            <label class="form-check-label" for="flexSwitchCheckDefault">
+                {{ isGeoLocationON ? 'Geolocation ON' : 'Geolocation OFF' }}
+            </label>
+        </div>
     </li>
 </ul>

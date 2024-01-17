@@ -1,0 +1,28 @@
+.geolocation-modal {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding: 16px;
+}
+
+.geolocation-on {
+    display: none;    
+}
+
+.geolocation-modal-buttons {
+    display: flex;
+}
+
+.btn {
+    width: 100%;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0, 0.5);
+}
+
+.yes {
+    color: #fff;
+    background-color: rgb(78, 78, 255);
+}

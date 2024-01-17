@@ -9,13 +9,24 @@ export class NavbarComponent {
 
   @Output() weatherType = new EventEmitter<boolean>();
 
-  isWeather: boolean = true;
+  isGeoLocationON: boolean | undefined;
+  checked: string = '';
 
-  ngOnInit(): void {};
+  ngOnInit(): void {
+    this.checkIsGeoLocationON();
+  };
+
+  checkIsGeoLocationON() {
+    const storedToggleValue: any = localStorage.getItem('isGeolocationON'); //string
+    this.isGeoLocationON = JSON.parse(storedToggleValue);
+    this.isGeoLocationON ? this.checked = 'checked' : '';
+  }
 
   changeWeatherType(): void {
-    this.isWeather = !this.isWeather;
-    this.weatherType.emit(this.isWeather);
+    this.isGeoLocationON = !this.isGeoLocationON;
+    const togglePosition = this.isGeoLocationON;
+    localStorage.setItem('isGeolocationON', JSON.stringify(togglePosition))
+    this.weatherType.emit(this.isGeoLocationON);
   }
 
 }
