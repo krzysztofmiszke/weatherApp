@@ -1,8 +1,8 @@
 <div *ngIf="isWeather; then weather else forecast"></div>
 
 <ng-template #weather>
-    <div class="weather-container" *ngIf="item.main">
-        <div class="date-container">
+    <div class="weather-container card" *ngIf="item.main">
+        <div class="date-container card-header">
             <div class="date-item">
                 {{ item.dt * 1000  | date: 'LLL dd' }}
             </div>
@@ -10,10 +10,10 @@
                 {{ item.dt * 1000  | date: 'EEEE' }}
             </div>
             <div class="date-item">
-                {{ item.dt * 1000  | date: 'H:mm' }}
+                {{ item.dt * 1000  | date: 'HH:mm' }}
             </div>
         </div>
-        <div class="weather-card" >
+        <div class="weather-card card-body">
             <div class="weather-card-ico" *ngFor="let weather of item.weather">
                 <div class="weather-ico">
                     <app-weather-icon [weather]="weather.main" [weatherIcon]="weather.icon"></app-weather-icon>

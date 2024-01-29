@@ -15,8 +15,6 @@ export class WeatherCardComponent {
 
   ngOnInit() { }
 
-  // convertToDate = (date: any) => new Date(date * 1000);
-
   convertToKilometers = (speed: number) => (speed * 3.6).toFixed(2);
   
 }
