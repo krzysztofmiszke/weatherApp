@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 
-import { Weather } from 'src/app/components/weather-card/weather-card.component';
+import { Weather } from 'src/app/models/weather-card/weather-card.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +53,6 @@ export class DataService {
 
   private handleError(message: string, error: any): Observable<never> {
     console.error(message, error);
-    return throwError('An error occurred. Please try again later.');
+    return error('An error occurred. Please try again later.');
   }
 }
-

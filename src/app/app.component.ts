@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   data: any | undefined;
   searchQuery: string = '';
   errorMessage: string = '';
-  isWeather: boolean = true;
+  isWeather: boolean | undefined;
   weatherNow: any | undefined;
 
   constructor(
@@ -39,27 +39,27 @@ export class AppComponent implements OnInit {
   }
 
   getWeather() {
-    this.data = this.dataService.getWeather().subscribe(
-      (data) => { 
-        this.data = data;
-        this.weatherNow = this.data;
-      },
-      (error) => { }
-    )
+    this.dataService.getWeather().subscribe({
+      next: value => this.data = value,
+      error: err => console.error(err.error.message),
+      complete: () => console.log('GetWeather subscription has been completed')
+    });
   }
 
   getForecast() {
-    !this.isWeather ? 
-    this.data = this.dataService.getForecast().subscribe(
-      (data: any) => {this.data = data;
-      }) : this.getWeather()
+    !this.isWeather ? this.dataService.getForecast().subscribe({
+      next: value => this.data = value,
+      error: err => console.error(err.error.message),
+      complete: () => console.log('GetForecast subscription has been completed')
+    }) : this.getWeather();
   }
 
   performSearch(): void {
-    this.data = this.searchService.getWeather(this.searchQuery).subscribe(
-      (data) => { this.data = data },
-      (error) => { console.log(this.errorMessage = error.error.message) }
-    );
+    this.searchService.getWeather(this.searchQuery).subscribe({
+      next: value => this.data = value,
+      error: err => console.error(err.error.message),
+      complete: () => console.log('Search subscription has been completed')
+    });
   }
 
 }

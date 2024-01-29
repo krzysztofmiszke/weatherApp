@@ -12,7 +12,7 @@
         <div>Your location:&nbsp;</div>
         <div class="location">{{ data.name }} ({{ data.sys.country }})</div>
       </div>
-      <app-weather-card [item]="weatherNow"></app-weather-card>
+      <app-weather-card [item]="data"></app-weather-card>
     </ng-template>
 
     <ng-template #forecast>
@@ -20,7 +20,7 @@
         <div>Your location:&nbsp;</div>
         <div class="location">{{ data.city.name  }} ({{ data.city.country }})</div>
       </div>
-      <div *ngFor="let listitem of data.list">
+      <div *ngFor="let listitem of data?.list">
         <app-weather-card [item]="listitem"></app-weather-card>
       </div>
     </ng-template>
