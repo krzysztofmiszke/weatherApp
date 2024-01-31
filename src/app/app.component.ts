@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { SearchService } from 'src/app/components/search/search.service';
+import { Forecast, Weather } from 'src/app/models/weather-card/weather-card.model';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ import { SearchService } from 'src/app/components/search/search.service';
 export class AppComponent implements OnInit {
 
   title = 'weatherApp';
+  weather?: Weather;
+  forecast?: Forecast;
   data: any | undefined;
   searchQuery: string = '';
   errorMessage: string = '';
@@ -22,13 +25,25 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isWeather ? this.getWeather() : this.getForecast();
+    // this.isWeather ? this.getWeather() : this.getForecast();
+    this.getAllData();
     this.getSearchQuery();
+  }
+
+  getAllData() {
+    this.dataService.getAllData().subscribe({
+      next: value => {
+        this.weather = value.weather;
+        this.forecast = value.forecast
+      },
+      error: err => console.error(err.message),
+      complete: () => console.log('Weather data has been fetched..')
+    })
   }
 
   checkWeather(isWeather: boolean): void {
     this.isWeather = isWeather;
-    isWeather ? this.getWeather() : this.getForecast();
+    // isWeather ? this.getWeather() : this.getForecast();
   }
 
   getSearchQuery() {
@@ -38,21 +53,21 @@ export class AppComponent implements OnInit {
     })
   }
 
-  getWeather() {
-    this.dataService.getWeather().subscribe({
-      next: value => this.data = value,
-      error: err => console.error(err.error.message),
-      complete: () => console.log('GetWeather subscription has been completed')
-    });
-  }
+  // getWeather() {
+  //   this.dataService.getWeather().subscribe({
+  //     next: value => this.data = value,
+  //     error: err => console.error(err.error.message),
+  //     complete: () => console.log('GetWeather subscription has been completed')
+  //   });
+  // }
 
-  getForecast() {
-    this.dataService.getForecast().subscribe({
-      next: value => this.data = value,
-      error: err => console.error(err.error.message),
-      complete: () => console.log('GetForecast subscription has been completed')
-    });
-  }
+  // getForecast() {
+  //   this.dataService.getForecast().subscribe({
+  //     next: value => this.data = value,
+  //     error: err => console.error(err.error.message),
+  //     complete: () => console.log('GetForecast subscription has been completed')
+  //   });
+  // }
 
   performSearch(): void {
     this.isWeather 
