@@ -1,16 +1,16 @@
 <div *ngIf="isWeather; then weather else forecast"></div>
 
 <ng-template #weather>
-    <div class="weather-container card" *ngIf="item.main">
+    <div class="weather-container card" *ngIf="item?.main">
         <div class="date-container card-header">
             <div class="date-item">
-                {{ item.dt * 1000  | date: 'LLL dd' }}
+                {{ item?.dt * 1000  | date: 'LLL dd' }}
             </div>
             <div class="date-item">
-                {{ item.dt * 1000  | date: 'EEEE' }}
+                {{ item?.dt * 1000  | date: 'EEEE' }}
             </div>
             <div class="date-item">
-                {{ item.dt * 1000  | date: 'HH:mm' }}
+                {{ item?.dt * 1000  | date: 'HH:mm' }}
             </div>
         </div>
         <div class="weather-card card-body">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="humidity-value detail">
                     <span>Humidity </span>
-                    <span>{{ item.main.humidity }} %</span>
+                    <span>{{ item?.main?.humidity }} %</span>
                 </div>
                 <div class="wind-value detail">
                     <span>Wind </span>

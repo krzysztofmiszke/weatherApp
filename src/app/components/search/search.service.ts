@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, map } from 'rxjs';
+import { Observable, Subject, forkJoin, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +25,13 @@ export class SearchService {
     return this.searchQuerySubject.asObservable();
   }
 
-  getWeather(searchValue: string): Observable<any> {
-    const url = `${this.weatherUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
-    return this.http.get(url);
-  }
-
-  getForecast(searchValue: string): Observable<any> {
-    const url = `${this.forecastUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
-    return this.http.get(url);
+  getAllData(searchValue: string): Observable<any> {
+    const weatherUrl = `${this.weatherUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
+    const forecastUrl = `${this.forecastUrl}q=${searchValue}&appid=${this.apiKey}${this.metric}${this.count}`;
+    return forkJoin([
+      this.http.get(weatherUrl),
+      this.http.get(forecastUrl)
+    ]);
   }
 
 }
