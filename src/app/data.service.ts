@@ -68,32 +68,6 @@ export class DataService {
     } as weatherModel.Forecast
   }
 
-  // getWeather(): Observable<Partial<weatherModel.Weather>> {
-  //   return this.getCurrentPosition().pipe(
-  //     mergeMap((position: GeolocationPosition) => {
-  //       const apiUrlWithGeolocation = `${this.apiUrlWeather}?appid=${this.apiKey}${this.metric}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
-  //       return this.http.get(apiUrlWithGeolocation).pipe(
-  //         map((response: any) => response),
-  //         catchError((error) => this.handleError('Error fetching weather data:', error))
-  //       );
-  //     }),
-  //     catchError((error) => this.handleError('Error getting geolocation:', error))
-  //   );
-  // }
-
-  // getForecast(): Observable<Partial<weatherModel.Forecast>> {
-  //   return this.getCurrentPosition().pipe(
-  //     mergeMap((position: GeolocationPosition) => {
-  //       const apiUrlWithGeolocation = `${this.apiUrlForecast}?appid=${this.apiKey}${this.metric}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
-  //       return this.http.get(apiUrlWithGeolocation).pipe(
-  //         map((response: any) => response),
-  //         catchError((error) => this.handleError('Error fetching forecast data:', error))
-  //       );
-  //     }),
-  //     catchError((error) => this.handleError('Error getting geolocation:', error))
-  //   );
-  // }
-
   private getCurrentPosition(): Observable<GeolocationPosition> {
     return new Observable<GeolocationPosition>((observer) => {
       navigator.geolocation.getCurrentPosition(
