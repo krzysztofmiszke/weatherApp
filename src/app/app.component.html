@@ -2,28 +2,18 @@
 
   <div class="app-container">
     
-    <!-- <app-navbar (weatherType)="checkWeather($event)"></app-navbar> -->
-    <app-search (search)="performSearch()"></app-search>
+  <!-- <app-navbar (weatherType)="checkWeather($event)"></app-navbar> -->
+  <app-search (search)="performSearch()"></app-search>
+
+    <div class="location-data" *ngIf="weather?.name && weather?.sys?.country">
+      <div>Your location:&nbsp;</div>
+      <div class="location">{{ weather?.name }} ({{ weather?.sys?.country }})</div>
+    </div>
+    <app-weather-card [item]="weather"></app-weather-card>
     
-    <!-- <div class="weather-type" *ngIf="isWeather; then weather else forecast"></div> -->
-
-    <!-- <ng-template #weather> -->
-      <div class="location-data" *ngIf="data?.name && data?.sys?.country">
-        <div>Your location:&nbsp;</div>
-        <div class="location">{{ data?.name }} ({{ data?.sys?.country }})</div>
-      </div>
-      <app-weather-card [item]="weather"></app-weather-card>
-    <!-- </ng-template> -->
-
-    <!-- <ng-template #forecast> -->
-      <div class="location-data" *ngIf="data && data.city">
-        <div>Your location:&nbsp;</div>
-        <div class="location">{{ data?.city?.name  }} ({{ data?.city?.country }})</div>
-      </div>
-      <div *ngFor="let listitem of forecast?.list">
-        <app-weather-card [item]="listitem"></app-weather-card>
-      </div>
-    <!-- </ng-template> -->
+    <div *ngFor="let listitem of forecast?.list">
+      <app-weather-card [item]="listitem"></app-weather-card>
+    </div>
 
   </div>
 
