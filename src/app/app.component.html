@@ -1,16 +1,22 @@
 <router-outlet>
 
   <div class="app-container">
-    
+  
+  <!-- TO BE USED LATER -->
   <!-- <app-navbar (weatherType)="checkWeather($event)"></app-navbar> -->
+
   <app-search (search)="performSearch()"></app-search>
+  <p class="error-message">{{ errorMessage }}</p>
 
     <div class="location-data" *ngIf="weather?.name && weather?.sys?.country">
       <div>Your location:&nbsp;</div>
       <div class="location">{{ weather?.name }} ({{ weather?.sys?.country }})</div>
     </div>
+
+    <h6 *ngIf="weather">CURRENT WEATHER</h6>
     <app-weather-card [item]="weather"></app-weather-card>
     
+    <h6 *ngIf="forecast">FORECAST</h6>
     <div *ngFor="let listitem of forecast?.list">
       <app-weather-card [item]="listitem"></app-weather-card>
     </div>

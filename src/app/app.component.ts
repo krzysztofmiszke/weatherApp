@@ -53,7 +53,10 @@ export class AppComponent implements OnInit {
         this.weather = weather;
         this.forecast = forecast;
       },
-      error: err => console.error(err.error.message),
+      error: err => {
+        this.errorMessage = err.error.message;
+        console.error(err.error.message);
+      },
       complete: () => console.log('Search request has been sent..')
     });
   }
