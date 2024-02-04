@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, forkJoin, map } from 'rxjs';
+import { apiKey } from 'src/environments/api-key';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class SearchService {
   
   weatherUrl: string = 'http://api.openweathermap.org/data/2.5/weather?';
   forecastUrl: string = 'http://api.openweathermap.org/data/2.5/forecast?';
-  apiKey: string = 'a77716829359c16e80a756f4d9593c06';
+  apiKey: string = apiKey;
   metric: string = '&units=metric';
   count: string = '&cnt=40';
   

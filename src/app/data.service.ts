@@ -4,12 +4,13 @@ import { Observable, forkJoin } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 
 import * as weatherModel from 'src/app/models/weather-card/weather-card.model';
+import { apiKey } from '../environments/api-key';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private readonly apiKey: string = 'a77716829359c16e80a756f4d9593c06';
+  private readonly apiKey: string = apiKey;
   private readonly metric: string = '&units=metric';
   private readonly apiUrlWeather: string = 'http://api.openweathermap.org/data/2.5/weather';
   private readonly apiUrlForecast: string = 'http://api.openweathermap.org/data/2.5/forecast';
