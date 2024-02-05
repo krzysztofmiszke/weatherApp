@@ -1,6 +1,6 @@
 Usage
 
-1. Go to [https://openweathermap.org/](https://home.openweathermap.org/users/sign_up)https://home.openweathermap.org/users/sign_up
+1. Go to [https://openweathermap.org/](https://home.openweathermap.org/users/sign_up)
 2. Create account
 3. Navigate to https://home.openweathermap.org/api_keys
 4. Create personal APIKey
